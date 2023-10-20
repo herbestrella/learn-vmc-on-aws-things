@@ -55,4 +55,34 @@ If you have never used VMC on AWS and would like a primer, I highly suggest tryi
 
 ## Create VPC
 
+Login to your AWS account navigate to your VPC section; from here you'll want to click on "Create VPC"
+
+Once completed you will have a VPC created that can be used with VMC on AWS; i.e. "VMC-VPC" **10.100.0.0/21**
+
+![Create VPC](/assets/VMC-on-AWS-Trial-images/create-vpc.png)
+
+### Create Subnets inside of the newly created VPC (VPC-VMC)
+
+For my example since the trial only allows for a single AZ, the subnets I create are for the **Private Subnet** and **Public Subnet** show in the [VPC Subnets Table](https://github.com/herbestrella/learn-vmc-on-aws-things/blob/main/journal/VMC-on-AWS-Trial.md#create-vpc-subnets-as-needed-example)
+
+![Create Subnets](/assets/VMC-on-AWS-Trial-images/create-subnets.png)
+
+Once completed you will have created something similar to the below in your desired region.
+
+![AWS Logical Network Diagram](/assets/VMC-on-AWS-Trial-images/aws-cloud-network-logical.png)
+
 ## Create SDDC
+
+Now that you have your networking completed on AWS you will have everything you need to get started with your SDDC Build.
+
+![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-1.png)
+![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-2.png)
+![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-3.png)
+![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-4.png)
+![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-5.png)
+![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-6.png)
+![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-7.png)
+![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-8.png)
+![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-9.png)
+![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-10.png)
+![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-final.png)
