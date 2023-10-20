@@ -5,7 +5,7 @@
 - Create (VMC) SDDC
 
 ## Pre-requisites
-- VMWare Customer Connect Account 
+- VMware Customer Connect Account 
     - [VMware Customer Connect](https://customerconnect.vmware.com/home)
 - AWS Account
     - [AWS Free Tier](https://aws.amazon.com/free/?trk=fce796e8-4ceb-48e0-9767-89f7873fac3d&sc_channel=ps&ef_id=CjwKCAjwysipBhBXEiwApJOcu3i2DNJ0GD1-VOYKmPYjSW09SKIUfNGo7eccOgxgDD952ar4f-1n4RoC1AEQAvD_BwE:G:s&s_kwcid=AL!4422!3!592542020599!e!!g!!aws!1644045032!68366401852&all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all)
@@ -75,8 +75,29 @@ Once completed you will have created something similar to the below in your desi
 
 Now that you have your networking completed on AWS you will have everything you need to get started with your SDDC Build.
 
-![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-1.png)
-![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-2.png)
+You can pre yourself further by going through the "View Journey Map" this will go through the quick start series YouTube videos and has clear instructions on how to get your SDDC installed and operational. Essentially it will guide you through creating a VPC and sort out the logistics (payment, etc).
+
+![View Journey Map](/assets/VMC-on-AWS-Trial-images/SDDC-build-1.png)
+
+When you're ready to build your SDDC you can click "Get Started"
+
+From here you will need a enter some information:
+- SDDC Name: **SDDC-1-DAF1**
+    - I opted to go with something basic, my on-prem uses all lower case and so I thought this would be good opportunity to switch it up and go with CAPS to differentiate between the two.
+- AWS Region: **US East (N. Virginia)
+    - I'm in the east region so it's the logical choice for me.
+- Deployment: **Single Host**
+    - Trial allows for a single host only
+- Host Type: I3 (Local SSD)
+    - Trial allows for I3, I believe I could have selected I4 but went with the lowest option
+-Number of Hosts: 1
+    - Single Host option is all that is allowed for the Trial
+
+The rest are pretty much defaults and no advanced configuration - click **Next**
+
+![Getting Started](/assets/VMC-on-AWS-Trial-images/SDDC-build-2.png)
+
+
 ![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-3.png)
 ![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-4.png)
 ![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-5.png)
