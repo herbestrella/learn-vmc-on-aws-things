@@ -1,0 +1,5 @@
+# VMC-on-AWS VPN Connectivity Options
+
+## Goals
+- Configure VPN connection from SDDC to on Prem
+- Import a VM from On-prem vCenter to SDDC vCenter
