@@ -4,8 +4,7 @@
 
 
 ## Journals
-#- [Trial Journal](journal/week0.md)
-#- [Week 1 Journal](journal/week1.md)
+ - [Trial Journal]()
+
 
 ## Extras
-#[Github Markdown TOC Generator](https://derlin.github.io/bitdowntoc/)
