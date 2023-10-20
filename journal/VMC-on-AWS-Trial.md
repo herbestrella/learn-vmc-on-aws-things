@@ -1,11 +1,8 @@
-# VMC-on-AWS-Trail
+# VMC-on-AWS-Trial
 
 ## Goals
 - Successfully sign up for VMC on AWS Trial
 - Create (VMC) SDDC
-- Configure VPN connection from SDDC to on Prem
-- Import a VM from On-prem vCenter to SDDC vCenter
-- Configure and utilize HCX to migrate on-prem VM to SDDC
 
 ## Pre-requisites
 - VMWare Customer Connect Account 
@@ -21,9 +18,41 @@ You can signup for the trial period here: [VMC on AWS Trial Signup](https://www.
 
 Vendor Documentation regarding the trial: [VMC on AWS Trial Official Documentation](https://docs.vmware.com/en/VMware-Cloud-on-AWS/services/com.vmware.vmc-aws.getting-started/GUID-2844809E-3C4A-49D9-9068-191E6985CE5C.html)
 
+Reference Architecture: [Getting Started with VMC on AWS Reference Architecture](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/docs/vmw-getting-started-with-vmc-on-aws-reference-architecture.pdf)
+
 Super helpful YouTube "Quick Start Series" [VMWare Cloud on AWS Quick Start](https://youtube.com/playlist?list=PLNOz1mVhDkG5JH3JqN1yPSfenGdizXqwh&si=sUJ7oUPVq6URgx_z)
 
 If you have never used VMC on AWS and would like a primer, I highly suggest trying out the [VMware Cloud on AWS - Fundamentals - Hands-on Lab](https://customerconnect.vmware.com/en/evalcenter?p=vmc-aws-hol-gen-23)
 
 ![VMC on AWS Trial Email Response](/assets/VMC-on-AWS-Trial-images/vmc-trial.png)
 
+## Networking
+
+### On-prem Networks
+
+| Name | Subnet | VLAN ID | Usable Addresses |
+| ----- | ----- | ----- | ----- |
+| Management | 10.120.0.0/16 | 10 | 10.120.0.1 - 10.120.255.254 |
+| user-vlan-11 | 192.168.250.0/24 | 11 | 192.168.250.1 - 192.168.250.254 |
+
+### VMC on AWS (example)
+
+| Component | Value | Usable Addresses |
+| ---- | ---- | ---- |
+| AWS Region | us-east-1 | n/a |
+| VPC Name | VMC-VPC | n/a |
+| VPC CIDR Block | 10.100.0.0/21 | 10.100.0.1 - 10.100.7.254 |
+| SDDC Name | SDDC-1-DAF1 | n/a |
+| SDDC Management CIDR Block (default) | 10.2.0.0/16 | 10.2.0.1 - 10.2.255.254 |
+
+### Create VPC Subnets as needed (example)
+
+| Subnet Purpose | Availability Zone A | Availability Zone B |
+| ---- | ---- | ---- |
+| Private Subnet | 10.100.**0**.0/23 | 10.100.**2**.0/23 |
+| Connected SDDC | 10.100.**4**.0/24 | 10.100.**5**.0/24 |
+| Public Subnet | 10.100.**6**.0/24 | 10.100.**7**.0/24 |
+
+## Create VPC
+
+## Create SDDC
