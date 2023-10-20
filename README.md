@@ -4,7 +4,7 @@
 
 
 ## Journals
- - [Trial Journal]()
+ - [Trial Journal](/journal/VMC-on-AWS-Trial)
 
 
 ## Extras
