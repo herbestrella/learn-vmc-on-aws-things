@@ -19,28 +19,28 @@ Summary: I ended up going with a Route Based VPN with BGP for my setup, I discov
 ## Configure Palo Alto
 
 ### Create IPSec Crypto Profile on Palo Alto
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-1.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-1.png)
 
 ### Create IKE Crypto Profile on Palo Alto
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-2.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-2.png)
 
 ### Create IKE Gateway Profile on Palo Alto
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-3.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-3.png)
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-4.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-4.png)
 
 ### Create Tunnel Interface
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-5.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-5.png)
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-6.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-6.png)
 
 ### Create IPSec Tunnel
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-7.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-7.png)
 
 ### Create Firewall Rules
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-8.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-8.png)
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-9.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-9.png)
 
 ## BGP Configurations
 
@@ -52,11 +52,11 @@ Summary: I ended up going with a Route Based VPN with BGP for my setup, I discov
 - Auth Profile
     - Create one as you'll need this for the SDDC and the Peer Group
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-10.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-10.png)
 
 ### Create Peer Group
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-11.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-11.png)
 
 - Define the name of the Peer Group
 - Peer AS on the SDDC is 6500 by default
@@ -65,17 +65,17 @@ Summary: I ended up going with a Route Based VPN with BGP for my setup, I discov
 - Peer Address = the address of your SDDC
     - ex. 1.1.1.2 (IP only defined)
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-12.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-12.png)
 
 - Select the AUTH Profile
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-13.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-13.png)
 
 Route Redistribution - it is necessary if you're using multiple VPN connections in your SDDC to not select "Allow Redistribute Default Route" in my case - I have a static route going to my ISP (ex. 0.0.0.0/0 -> eth1) when this is selected it will redistribute that to the SDDC and may cause issues with other VPN connections - my on-prem NSX had to modified as well to add a static route (see section below)
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-14.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-14.png)
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-15.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-15.png)
 
 ## Configure NSX on SDDC
 ### Configure Route Based IPSEC VPN
@@ -93,31 +93,31 @@ Route Redistribution - it is necessary if you're using multiple VPN connections 
 The rest of the settings can be left default if you used the settings as described in the Palo Alto section above
 
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-16.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-16.png)
 
 Create a Management Group with IP addresses you want to have access to Management Assests in your SDDC
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-17.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-17.png)
 
 Create a Compute Group with IP addresses you want to have access to Compute Assests in your SDDC
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-18.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-18.png)
 
 Using the Compute Group you created create a Gateway Rule under the compute section to allow VPN access; defining the "BGP Subnet" will allow BGP traffic to your On-Prem along with the Policy created on the Palo Alto. Ensure to change the "Applied To" 
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-19.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-19.png)
 
 From here if you have all your configurations in place your Tunnel will be available and BGP will be established.
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-20.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-20.png)
 
 Tunnel is active on the Palo Alto
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-21.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-21.png)
 
 Learned Routes on the SDDC show networks from the On-Prem
 
-![Route-Based VPN](/assets/VMC-on-AWS-Trial-images/Route-based-vpn-22.png)
+![Route-Based VPN](/docs/assets/VMC-on-AWS-Trial-images/Route-based-vpn-22.png)
 
 ## (Optional) On-prem NSX-T Static Route
 In my setup my on-prem Palo’s BGP settings had “Allow Redistribute Default Route” as well as a static route of 0.0.0.0/0 to my eth1 (Untrust) ISP connection. 
@@ -126,9 +126,9 @@ When this was enabled 0.0.0.0/0 was present on the SDDC learned routes which cau
 
 The fix was to not allow redistribute default route and set up a static route on the on-prem T0 gateway to another gateway (on the Palo) that could reach the internet. In my case, my “Edge Uplink” network gateways (which are sub-interfaces on the Palo) have access to the internet. 
 
-![on-prem-nsx](/assets/VMC-on-AWS-Trial-images/on-prem-static-1.png)
+![on-prem-nsx](/docs/assets/VMC-on-AWS-Trial-images/on-prem-static-1.png)
 
-![on-prem-nsx](/assets/VMC-on-AWS-Trial-images/on-prem-static-1.png)
+![on-prem-nsx](/docs/assets/VMC-on-AWS-Trial-images/on-prem-static-1.png)
 
 ## Helpful Links
 [VMware VMC on AWS Policy Based VPN Example](https://youtu.be/XZ3ra2YbanA?si=JEv_iXXqWEEJN1xE) - Part of the VMC on AWS quickstart series - dives into the configuration of the Policy Based VPN setup from the SDDC side in NSX.
