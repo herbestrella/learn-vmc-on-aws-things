@@ -97,13 +97,45 @@ The rest are pretty much defaults and no advanced configuration - click **Next**
 
 ![Getting Started](/assets/VMC-on-AWS-Trial-images/SDDC-build-2.png)
 
+Assuming you're already signed into your AWS Console you click on **Open AWS Console with Cloudformation Template** if not you should have the opportunity to add credentials.
 
 ![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-3.png)
+
+This is just a acknowledge before creating the stack, if you're good to go, check the box and click **Create Stack**
+
 ![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-4.png)
+
+From here you will see an overview and stack should be created.
+
 ![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-5.png)
+
+You should now be able to select the VPC and subnet you created earlier.
+
 ![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-6.png)
+
+Management CIDR block, I left blank as it will take the default **10.2.0.0/16**
+
 ![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-7.png)
+
+If everything is entered to your liking, you can now **Deploy SDDC**
+
 ![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-8.png)
+
+The page will chaange to show you status of your SDDC Build
+
 ![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-9.png)
+
+It's takes a couple of hours, this might have been close or over the 2hr mark
+
 ![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-10.png)
+
+Once completed you will now be able to explore and start using your SDDC!
+
 ![Create SDDC](/assets/VMC-on-AWS-Trial-images/SDDC-build-final.png)
+
+## Things To Do Next
+
+- Add your on-prem public IP address to the NSX Firewall Rules for remote access to the vCenter
+[Allow Access to SDDC vCenter over Public Internet](https://youtu.be/g9WdbCWVbYQ?si=FOqXU_YLThLj2WjJ)
+- VPN Connectivity from your On-Prem Datacenter to your SDDC.
+[Overview of Network Connectivity Options](https://youtu.be/y-Likfr6mxM?si=8bvBGtts6ArUsDRL)
