@@ -5,6 +5,6 @@
 
 ## Journals
  - [VMC on AWS Trial](/journal/VMC-on-AWS-Trial.md)
-
+ - [VMC on AWS Route Based Policy IPSec VPN with BGP](/journal/VMC-on-AWS-VPN-Connectivity.md)
 
 ## Extras
